@@ -14,13 +14,10 @@ if [ "$language" = "python" ]; then
 	# Start a nix-shell with python and create a .venv in the project
 	nix-shell -p python3 --run "
 	python -m venv .venv
-	"
-
-	# Make it a git repo
 	git init
 	touch .gitignore
 	echo '.venv/' >> .gitignore
+	"
 
-	# Re-enter nix-shell with python
-	nix-shell -p python3
+	echo "Project $project_name initialized"
 fi
